@@ -4,6 +4,7 @@ date: 2016-12-23 22:56:00
 tags: Java EE
 categories: Tigase
 ---
+> 版权声明：本文为博主原创文章，未经博主允许不得转载。
 
 从十一月开始到现在，已经马上两个月了。刚来就开始折腾`React-Native`,`Cordova`。前前后后折腾了20天。项目任务确定下后，又开始折腾`Tigase`,`Smack`。现在项目可以相互之间发送图片，文字了。但是还是不太了解`Tigase`后端实现。正好前几天把Java EE基础学完。慢慢看看源码。对`Tigase`源码整理一下。用最原生的做法太耗性能。不逼逼了，上菜。<!--more-->
 
@@ -58,3 +59,28 @@ categories: Tigase
 
 ## Tigase运行流程
 
+> 忙着呢。这部分先不管。
+
+## Tigase Http Api配置和开发
+
+### 基本配置
+
+```Java
+--comp-name-1=http
+--comp-class-3=tigase.http.HttpMessageReceiver
+```
+
+通过配置上面的代码来加载http组建。
+
+默认的配置组建将尝试 在8080端口上启动独立的Jetty HTTP Server。并且添加默认启动模块，包括RestModule,RestModule将从`/rest`目录下添加REST API到上下文中。默认情况下，RestModule将会加载位于`scripts/rest/xxx`的所有groovy脚本。绑定对应的`/rest/api`。
+
+注意事项：位于`src/scripts/groovy/tigase/rest`的HTTP脚本都可用。
+
+### 属性配置
+
+下面有一些支持从`init.properties`中添加的属性：
+
+- http/ports[i] -
+- http/xxx/socket=ssl - 
+- http/xxx/domain - 
+- http/server-class - 
