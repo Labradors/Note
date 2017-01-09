@@ -24,7 +24,7 @@ allprojects {
 
 ```shell
 dependencies {
-            compile 'com.github.BosCattle:JMessage:V0.0.1'
+            compile 'com.github.BosCattle:JMessage:V0.0.2'
 	}
 ```
 
