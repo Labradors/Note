@@ -39,7 +39,7 @@ dependencies {
 ```Java
 //设置提示框的颜色
 SimpleHUD.backgroundHexColor="#FF4081";
-//设置虚拟域名，资源，服务器的地址，端口号
+//设置虚拟域名，资源，服务器的地址，端口号，表情包ID，表情包秘钥，文件上传地址
 SupportUI.initialize(Context context,String serviceName,String resource,String host,int port,String mmAppId,String mmAppSecret,String baseUrl)
 ```
 
