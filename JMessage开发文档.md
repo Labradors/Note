@@ -144,6 +144,18 @@ public class PowerApp extends Application {
   }
 ```
 
+## 注销账户
+当前版本注销会不保存之前的聊天记录，后续会支持历史消息记录。直接调用一下代码完成注销:
+
+```Java
+ XMPPService.disConnect(new DisconnectCallBack() {
+      @Override
+      public void disconnectFinish() {
+        
+      }
+    });
+```
+
 ## 注册
 
 必须使用SimpleRegister简化注册操作，`RegisterCallBack`回调注册，与登录操作类似，可以参考[注册页面源码](https://github.com/BosCattle/JMessage/blob/test_release/app/src/main/java/com/china/epower/chat/ui/activity/RegisterActivity.java)。主要的代码如下:
@@ -268,22 +280,6 @@ public void uploadFile(String path, String type) {
       for (Fragment fragment : fragments) {
         fragment.onActivityResult(requestCode, resultCode, data);
       }
-    }
-  }
-```
-
-必须实现`ContactItemCallback`接口，用来传递参数以及指明页面，在回调中，复制如下代码:
-
-```Java
-  @Override public void onItemClick(int position, View view, Object object) {
-    if (object instanceof ConstrutContact) {
-      ConstrutContact data = (ConstrutContact) object;
-      if (data.mVCardRealm != null) {
-        ChatActivity.startChat(this, data.mVCardRealm);
-      }
-    }else if(object instanceof VCardRealm){
-      VCardRealm data = (VCardRealm) object;
-      ChatActivity.startChat(this, data);
     }
   }
 ```
