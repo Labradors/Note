@@ -7,6 +7,8 @@ categories: Tigase
 这篇文章记录JMessage相关的API和与自身业务系统集成的流程。首先，当前只有Android方面的library和文档，iOS版本，等心情好了再说，JMessage当前支持文字，图片，语音单聊，支持注册，登录，添加好友，删除好友。支持文件传输，离线文件传输功能。切换账号后，暂时不支持历史消息。后续会完善。所有聊天列表界面，通讯录界面，单聊界面使用`fragment`,可以直接接入。不扯淡了，直接上代码。在文档中，必须设置的部分，使用必须关键字，可选的部分，使用可以指明。<!--more-->
 ## 接入方式
 
+[![](https://jitpack.io/v/BosCattle/JMessage.svg)](https://jitpack.io/#BosCattle/JMessage)
+
 ### AS
 
 #### 添加JitPack仓库
@@ -24,7 +26,7 @@ allprojects {
 
 ```shell
 dependencies {
-            compile 'com.github.BosCattle:JMessage:V0.0.2'
+            compile 'com.github.BosCattle.JMessage:PowerSupportKit:TAG'
 	}
 ```
 
