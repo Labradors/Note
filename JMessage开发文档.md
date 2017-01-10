@@ -26,7 +26,7 @@ allprojects {
 
 ```shell
 dependencies {
-            compile 'com.github.BosCattle.JMessage:PowerSupportKit:TAG'
+            compile 'com.github.BosCattle.JMessage:PowerSupportUI:TAG'
 	}
 ```
 
@@ -85,10 +85,9 @@ public class PowerApp extends Application {
   }
 }
 ```
-在manifest中声明如下:
+在manifest中声明如下:注意运行时权限
 ```xml
   <uses-sdk tools:overrideLibrary="work.wanghao.simplehud,com.kevin.library"/>
-  <!-- 蒲公英-->
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> <!-- 获取网络状态 -->
   <uses-permission android:name="android.permission.INTERNET"/> <!-- 网络通信-->
   <uses-permission android:name="android.permission.READ_PHONE_STATE"/>  <!-- 获取设备信息 -->
@@ -98,6 +97,10 @@ public class PowerApp extends Application {
   <uses-permission android:name="android.permission.READ_LOGS"/> <!-- 获取logcat日志 -->
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <uses-permission android:name="android.permission.GET_TASKS"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
   <application
       android:name=".app.PowerApp"
       android:allowBackup="true"
