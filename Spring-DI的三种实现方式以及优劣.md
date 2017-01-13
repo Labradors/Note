@@ -152,7 +152,7 @@ public class Main {
 
 结果图:
 
-![Screen Shot 2017-01-13 at 11.22.34 AM](../Desktop/Screen Shot 2017-01-13 at 11.22.34 AM.png)
+![Screen Shot 2017-01-13 at 11.22.34 AM](http://7xk0q3.com1.z0.glb.clouddn.com/Screen%20Shot%202017-01-13%20at%2011.22.34%20AM.png)
 
 ## 构造方法注入
 
@@ -188,7 +188,7 @@ public class Main {
 
 运行结果:
 
-![Screen Shot 2017-01-13 at 11.22.34 AM](../Desktop/Screen Shot 2017-01-13 at 11.22.34 AM.png)
+![Screen Shot 2017-01-13 at 11.22.34 AM](http://7xk0q3.com1.z0.glb.clouddn.com/Screen%20Shot%202017-01-13%20at%2011.22.34%20AM.png)
 
 ## 接口注入
 
