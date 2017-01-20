@@ -7,7 +7,7 @@ categories: Java EE
 
 `Spring`,`Struts`,`Hiberbate`基础已经学习完成。想自己把这三个框架集成一下，然后再写一个后台管理网站练练手。`Spring`的作用是依赖注入，而`Struts`是显示层的东西，这两个框架集成后是什么样子。一边学习，一边记录。上车。<!--more-->
 
-## Spring集成Struts
+## Spring集成所需jar包
 
 首先，`Spring`集成`Struts`，那么`applicationContext.xml`和`struts.xml`,`web.xml`肯定是不能少的。前面两个是`Spring`和`Struts`的配置文件，后面一个是整个web的全局配置文件。在每个配置文件中应该怎么配置，怎么相互关联呢。其实就是将`Struts`中指定的`Action` 类为`Spring`注入的类。
 
@@ -37,10 +37,277 @@ categories: Java EE
 |   16   |        `struts2-core-2.2.3.1.jar`        |          |                Struts核心库                 |
 |   17   |         `xwork-core-2.2.3.1.jar`         |          |                 xwork核心库                 |
 |   18   |   `struts2-spring-plugin-2.2.3.1.jar`    |          |            Spring与Struts相互集成             |
+|   19   |            `antlr-2.7.2.jar`             |          |                                          |
+|   20   |          `aopalliance-1.0.jar`           |          |                                          |
+|   21   |            `commons-dbcp.jar`            |          |                                          |
+|   22   |            `commons-pool.jar`            |          |                                          |
+|   23   |            `dom4j-1.6.1.jar`             |          |                                          |
+|   24   | `hibernate-jpa-2.0-api-1.0.1.Final.jar`  |          |                                          |
+|   25   |             `hibernate3.jar`             |          |                                          |
+|   26   |              `jta-1.1.jar`               |          |                                          |
+|   27   |  `mysql-connector-java-5.1.18-bin.jar`   |          |                                          |
+|   28   | `org.springframework.jdbc-3.1.1.RELEASE.jar` |          |                                          |
+|   29   | `org.springframework.orm-3.1.1.RELEASE.jar` |          |                                          |
+|   30   | `org.springframework.transaction-3.1.1.RELEASE.jar` |          |                                          |
+|   31   |          `slf4j-api-1.6.1.jar`           |          |                                          |
 
 
 
-### 集成
+## 集成
+
+### model层
+
+- 新建`User`model，如下:
+
+
+```java
+package com.action;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@javax.persistence.Table(name="user")
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	public int id;
+	@Column(name="name")
+	public String name;
+	@Column(name="password")
+	public String password;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", password=" + password + "]";
+	}
+}
+```
+### dao层
+
+- 新建dao接口:
+
+```Java
+package com.dao.impl;
+
+import java.util.List;
+
+import com.action.User;
+import com.action.UserAction;
+
+public interface UserDao {
+
+	public void save(User action);
+	
+	public User getUser(int id);
+	
+	public void update(User action);
+	
+	public void delete(User userAction);
+	
+	public List<User> findByName(String name);
+}
+```
+- 实现dao接口
+
+```Java
+package com.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+
+import com.action.User;
+import com.action.UserAction;
+
+public class UserDaoImpl implements UserDao {
+	
+	private SessionFactory sessionFactory;
+	private HibernateTemplate mHibernateTemplate;
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	public HibernateTemplate getHbernateTemplate() {
+		if (mHibernateTemplate==null) {
+			mHibernateTemplate = new HibernateTemplate(sessionFactory);
+		}
+		return mHibernateTemplate;
+	}
+	
+	public void save(User action) {
+		// TODO Auto-generated method stub
+		getHbernateTemplate().save(action);
+	}
+
+	public User getUser(int id) {
+		// TODO Auto-generated method stub
+		User userAction = getHbernateTemplate().get(User.class, new Integer(id));
+		return userAction;
+	}
+
+	public void update(User action) {
+		// TODO Auto-generated method stub
+		getHbernateTemplate().update(action);
+	}
+
+	public void delete(User userAction) {
+		// TODO Auto-generated method stub
+		getHbernateTemplate().delete(userAction);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<User> findByName(String name) {
+		// TODO Auto-generated method stub
+		String queryString = "from User u where u.name like ?";
+		return getHbernateTemplate().find(queryString);
+	}
+
+	
+}
+```
+
+### view层
+
+-  显示以及action
+
+```Java
+/**
+ * 
+ */
+package com.action;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.dao.impl.UserDaoImpl;
+import com.opensymphony.xwork2.ActionSupport;
+
+/**
+ * @author kevin
+ *
+ */
+public class UserAction extends ActionSupport {
+		public String name;
+		public String password;
+		private UserDaoImpl userDao;
+		
+		public String getName() {
+			return name;
+		}
+		
+		public void setUserDao(UserDaoImpl userDao) {
+			this.userDao = userDao;
+		}
+		
+		public UserDaoImpl getUserDao() {
+			return userDao;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+		
+		
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
+		@Override
+		public String execute() throws Exception {
+			// 不能直接new 得从applicationContext中获取
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setContentType("text/xml;charset=UTF-8");
+			User user = new User();
+			user.name = name;
+			user.password = password;
+			userDao.save(user);
+			response.getWriter().write(user.toString());
+		return "success";
+		}
+}
+```
+
+- 第一个页面
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>测试</h1>
+<s:form action="user">
+<s:textfield name="name" label="username"></s:textfield>
+<s:textfield name="password" label="password"></s:textfield>
+<s:submit></s:submit>
+</s:form>
+</body>
+</html>
+```
+
+- 第二个页面
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>妈的智障</h1>
+${name} 
+${password} 
+</body>
+</html>
+```
+
+### 配置文件
 
 - 添加全局web配置文件
 
@@ -75,13 +342,50 @@ categories: Java EE
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
-<beans>
-	<!--在Spring容器中注册Bean-->
-<bean id="userAction" class="com.action.UserAction" >
-<!--设值注入-->
-    	<property name="name" value="哈哈哈" />
-    </bean>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+		
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost/spring</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>123456</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource"/>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.action.User</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="userDao" class="com.dao.impl.UserDaoImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
 </beans>
 ```
 
@@ -101,75 +405,18 @@ categories: Java EE
     </package>
 </struts>
 ```
-### Action以及各个jsp 文件
+## 结果显示
 
-- Action
+- 输入页面
 
-```Java
-/**
- * 
- */
-package com.action;
+![2017012052053Screen Shot 2017-01-20 at 4.43.13 PM.png](http://7xk0q3.com1.z0.glb.clouddn.com/2017012052053Screen Shot 2017-01-20 at 4.43.13 PM.png)
 
-import com.opensymphony.xwork2.ActionSupport;
+- 结果页面
 
-/**
- * @author kevin
- *
- */
-public class UserAction extends ActionSupport {
-		public String name;
+![2017012041414Screen Shot 2017-01-20 at 4.44.46 PM.png](http://7xk0q3.com1.z0.glb.clouddn.com/2017012041414Screen Shot 2017-01-20 at 4.44.46 PM.png)
 
-		public String getName() {
-			return name;
-		}
+- 数据库
 
-		public void setName(String name) {
-			this.name = name;
-		}
-		
-		@Override
-		public String execute() throws Exception {
-		// TODO Auto-generated method stub
-		return "success";
-		}
-}
-```
+![2017012082110Screen Shot 2017-01-20 at 4.45.07 PM.png](http://7xk0q3.com1.z0.glb.clouddn.com/2017012082110Screen Shot 2017-01-20 at 4.45.07 PM.png)
 
-- 第一个页面
-```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h1>测试</h1>
-<s:form action="user">
-<s:submit></s:submit>
-</s:form>
-</body>
-</html>
-```
-
-- 第二个页面
-
-```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h1>妈的智障</h1>
-${name} 
-</body>
-</html>
-```
+最后看起来，还是不难的嘛。
