@@ -17,39 +17,39 @@ categories: Java EE
 
 此处所有依赖为`Struts2.0`和`Spring3.0`。版本有点老，我用最新版的始终集成不正确。等搞好了再升级版本。
 
-| Number |                 Package                  | Platform |                 Function                 |
-| :----: | :--------------------------------------: | :------: | :--------------------------------------: |
-|   1    |      `commons-fileupload-1.2.2.jar`      |  common  |                  文件上传功能                  |
-|   2    |          `commons-io-2.0.1.jar`          |  common  |                                          |
-|   3    |          `commons-lang-2.5.jar`          |  common  |                                          |
-|   4    |       `commons-logging-1.1.1.jar`        |  common  |                    日志                    |
-|   5    |         `freemarker-2.3.16.jar`          |  Struts  |                   模版引擎                   |
-|   6    |        `javassist-3.11.0.GA.jar`         |  common  |                   动态编程                   |
-|   7    |             `ognl-3.0.1.jar`             |  common  |             表达式语言，提供属性，方法调用              |
-|   8    | `org.springframework.asm-3.1.1.RELEASE.jar` |          | Spring独立的asm程序,Spring2.5.6的时候需要asmJar 包3.0.6开始提供他自己独立的asmJar。暂时我自己也不懂这事干嘛的。 |
-|   9    | `org.springframework.beans-3.1.1.RELEASE.jar` |          |               Spring IOC实现               |
-|   10   | `org.springframework.context-3.1.1.RELEASE.jar` |          | Spring提供在基础IoC功能上的扩展服务，此外还提供许多企业级服务的支持，如邮件服务、任务调度、JNDI定位、EJB集成、远程访问、缓存以及各种视图层框架的封装等 |
-|        | `org.springframework.context.support-3.1.1.RELEASE.jar` |          |       Spring-context的扩展支持,用于MVC方面        |
-|   12   | `org.springframework.core-3.1.1.RELEASE.jar` |          |               Spring 核心工具包               |
-|   13   | `org.springframework.expression-3.1.1.RELEASE.jar` |          |               Spring表达式语言                |
-|   14   | `org.springframework.web-3.1.1.RELEASE.jar` |          |              Spring Web工具包               |
-|   15   | `org.springframework.web.servlet-3.1.1.RELEASE.jar` |          |             基于servlet的MVC实现              |
-|   16   |        `struts2-core-2.2.3.1.jar`        |          |                Struts核心库                 |
-|   17   |         `xwork-core-2.2.3.1.jar`         |          |                 xwork核心库                 |
-|   18   |   `struts2-spring-plugin-2.2.3.1.jar`    |          |            Spring与Struts相互集成             |
-|   19   |            `antlr-2.7.2.jar`             |          |                                          |
-|   20   |          `aopalliance-1.0.jar`           |          |                                          |
-|   21   |            `commons-dbcp.jar`            |          |                                          |
-|   22   |            `commons-pool.jar`            |          |                                          |
-|   23   |            `dom4j-1.6.1.jar`             |          |                                          |
-|   24   | `hibernate-jpa-2.0-api-1.0.1.Final.jar`  |          |                                          |
-|   25   |             `hibernate3.jar`             |          |                                          |
-|   26   |              `jta-1.1.jar`               |          |                                          |
-|   27   |  `mysql-connector-java-5.1.18-bin.jar`   |          |                                          |
-|   28   | `org.springframework.jdbc-3.1.1.RELEASE.jar` |          |                                          |
-|   29   | `org.springframework.orm-3.1.1.RELEASE.jar` |          |                                          |
-|   30   | `org.springframework.transaction-3.1.1.RELEASE.jar` |          |                                          |
-|   31   |          `slf4j-api-1.6.1.jar`           |          |                                          |
+| Number |                 Package                  | Platform  |                 Function                 |
+| :----: | :--------------------------------------: | :-------: | :--------------------------------------: |
+|   1    |      `commons-fileupload-1.2.2.jar`      |  common   |                  文件上传功能                  |
+|   2    |          `commons-io-2.0.1.jar`          |  common   |                                          |
+|   3    |          `commons-lang-2.5.jar`          |  common   |                                          |
+|   4    |       `commons-logging-1.1.1.jar`        |  common   |                    日志                    |
+|   5    |         `freemarker-2.3.16.jar`          |  Struts   |                   模版引擎                   |
+|   6    |        `javassist-3.11.0.GA.jar`         |  common   |                   动态编程                   |
+|   7    |             `ognl-3.0.1.jar`             |  common   |             表达式语言，提供属性，方法调用              |
+|   8    | `org.springframework.asm-3.1.1.RELEASE.jar` |  spring   | Spring独立的asm程序,Spring2.5.6的时候需要asmJar 包3.0.6开始提供他自己独立的asmJar。暂时我自己也不懂这事干嘛的。 |
+|   9    | `org.springframework.beans-3.1.1.RELEASE.jar` |  spring   |               Spring IOC实现               |
+|   10   | `org.springframework.context-3.1.1.RELEASE.jar` |  spring   | Spring提供在基础IoC功能上的扩展服务，此外还提供许多企业级服务的支持，如邮件服务、任务调度、JNDI定位、EJB集成、远程访问、缓存以及各种视图层框架的封装等 |
+|        | `org.springframework.context.support-3.1.1.RELEASE.jar` |  spring   |       Spring-context的扩展支持,用于MVC方面        |
+|   12   | `org.springframework.core-3.1.1.RELEASE.jar` |  spring   |               Spring 核心工具包               |
+|   13   | `org.springframework.expression-3.1.1.RELEASE.jar` |  spring   |               Spring表达式语言                |
+|   14   | `org.springframework.web-3.1.1.RELEASE.jar` |  spring   |              Spring Web工具包               |
+|   15   | `org.springframework.web.servlet-3.1.1.RELEASE.jar` |  spring   |             基于servlet的MVC实现              |
+|   16   |        `struts2-core-2.2.3.1.jar`        |  struts   |                Struts核心库                 |
+|   17   |         `xwork-core-2.2.3.1.jar`         |  struts   |                 xwork核心库                 |
+|   18   |   `struts2-spring-plugin-2.2.3.1.jar`    |  struts   |            Spring与Struts相互集成             |
+|   19   |            `antlr-2.7.2.jar`             |  common   |                 语言语法分析器                  |
+|   20   |          `aopalliance-1.0.jar`           |  common   |                 面向切面编程接口                 |
+|   21   |            `commons-dbcp.jar`            |  common   |                DBCP数据库连接池                |
+|   22   |            `commons-pool.jar`            |  common   |                DBCP数据库连接池                |
+|   23   |            `dom4j-1.6.1.jar`             | hibernate |                 灵活的xml框架                 |
+|   24   | `hibernate-jpa-2.0-api-1.0.1.Final.jar`  | hibernate |                  注解使用类                   |
+|   25   |             `hibernate3.jar`             | hibernate |                  数据库核心包                  |
+|   26   |              `jta-1.1.jar`               | hibernate |                 分布式事务处理                  |
+|   27   |  `mysql-connector-java-5.1.18-bin.jar`   | hibernate |                 jdbc连接器                  |
+|   28   | `org.springframework.jdbc-3.1.1.RELEASE.jar` | hibernate |              spring与jdbc集成               |
+|   29   | `org.springframework.orm-3.1.1.RELEASE.jar` | hibernate |                  数据库集成                   |
+|   30   | `org.springframework.transaction-3.1.1.RELEASE.jar` | hibernate |                   事务集成                   |
+|   31   |          `slf4j-api-1.6.1.jar`           |  common   |                   日志系统                   |
 
 
 
@@ -419,4 +419,4 @@ ${password}
 
 ![2017012082110Screen Shot 2017-01-20 at 4.45.07 PM.png](http://7xk0q3.com1.z0.glb.clouddn.com/2017012082110Screen Shot 2017-01-20 at 4.45.07 PM.png)
 
-最后看起来，还是不难的嘛。
+最后看起来，还是不难的嘛。其实UserDao可以抽象出来，只需要单次注入，等以后再完善。
