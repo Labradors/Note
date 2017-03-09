@@ -28,3 +28,20 @@ categories: Java EE
 - 授权用户。`GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;`
 - 重启MySQL。`/etc/init.d/mysql restart`。
 
+## SQL语句
+
+来复习一波sql语句，书到用时方很少啊。大学没好好学习数据库，现在来恶补。
+- 返回指定条数的记录。`SELECT * from Persons LIMIT 2;`。各种数据库的top使用方法不同，支持情况也不同。
+- like，返回与通配符可匹配的记录。`SELECT * FROM Persons WHERE FirstName LIKE 'B%'`。也可以使用not表示相同的记录集。`SELECT * FROM Persons WHERE FirstName NOT LIKE 'B%'`。
+- 通配符，这个实在懒得记。[地址](http://www.w3school.com.cn/sql/sql_wildcards.asp)
+- in,表示取多个值。一个属性的值可以取多个。`SELECT * FROM Persons WHERE FirstName IN('AosCattle','BosCattle');`
+- between...and。这玩意也是不靠谱的。`SELECT * from Persons WHERE FirstName BETWEEN 'AosCattle' AND 'DosCattle';`
+- 别名。`SELECT LastName AS Family, FirstName AS NameFROM Persons`。
+- 多表查询，将一个表中的主键作为别的表中的列，这样进行多表查询，但是这种方式效率不高。`INSERT INTO Persons(LastName,FirstName,Address,City) VALUES('Kevin','DosCattle','四川省宜宾市高县沙河镇','宜宾市');`
+- 使用INNER JOIN。先记录内连接。`SELECT LastName,FirstName,City,Address, order_value from Persons INNER JOIN OrderTable ON Persons.Id=OrderTable.user_id;`
+- LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行。如`SELECT LastName,FirstName,City,Address, order_value from Persons LEFT JOIN OrderTable ON Persons.Id=OrderTable.user_id;`
+- RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行。如`SELECT LastName,FirstName,City,Address, order_value from Persons RIGHT JOIN OrderTable ON Persons.Id=OrderTable.user_id;`
+- FULL JOIN: 只要其中一个表中存在匹配，就返回行。如`SELECT LastName,FirstName,City,Address, order_value from Persons FULL JOIN OrderTable ON Persons.Id = OrderTable.user_id;`
+- UNION和UNION ALL,数据类型必须相同。暂时觉得没有什么用啊。
+- Select...Into.表 备份语句。如.`SELECT * INTO Persons_Back FROM Persons;`可用于带连接的表和带where的语句。
+- ​
