@@ -15,7 +15,7 @@ wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.6.4.tar.xz
 ```
 
 - 解压
-&nbsp;&nbsp;&nbsp;&nbsp;因为下载下来是.xz文件。首先要将.xz解压为.tar文件，然后解压tar文件。命令如下:
+  &nbsp;&nbsp;&nbsp;&nbsp;因为下载下来是.xz文件。首先要将.xz解压为.tar文件，然后解压tar文件。命令如下:
 
 - 将.xz文件解压为.tar文件
 
@@ -64,4 +64,4 @@ dpkg -l "linux-image*"
 ```Java
 apt-get remove --purge
 ```
-ps:妈蛋，必须要吐槽，不就是提升下性能吗，还弄那么麻烦。妈的，智障。
+ps:妈蛋，必须要吐槽，不就是提升下性能吗，还弄那么麻烦。妈的，智障。有什么问题可以留言哦.
