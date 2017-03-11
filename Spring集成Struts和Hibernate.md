@@ -2,7 +2,7 @@
 title: Spring集成Struts和Hibernate
 date: 2017-01-17 22:56:00
 tags: Spring
-categories: Java EE
+categories: 后端
 ---
 
 `Spring`,`Struts`,`Hiberbate`基础已经学习完成。想自己把这三个框架集成一下，然后再写一个后台管理网站练练手。`Spring`的作用是依赖注入，而`Struts`是显示层的东西，这两个框架集成后是什么样子。一边学习，一边记录。上车。<!--more-->

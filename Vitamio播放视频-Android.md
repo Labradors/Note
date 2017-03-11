@@ -2,7 +2,7 @@ title: Vitamio播放视频-Android
 date: 2016-02-04 09:37:47
 updated: 2016-02-04 09:37:47
 tags: [视频播放]
-categories: Android
+categories: 移动端
 
 ---
 ![](http://7xk0q3.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BEvitamio.png)
@@ -15,7 +15,7 @@ categories: Android
   1. Vitamio(笔记内容,开发软件只针对Android Studio)
   2. VideoLAN
   3. ExoPlayer
-<!--more-->
+     <!--more-->
 
 ## Vitamio集成
 1. 下载*VitamioBundle20151118.zip*,解压后得到文件夹。

@@ -2,7 +2,7 @@
 title: Spring Bean生命周期和作用域以及实现方式
 date: 2017-01-14 22:56:00
 tags: Spring
-categories: Java EE
+categories: 后端
 ---
 
 在`applicationContext.xml`中配置完`bean`之后，`Bean`的声明周期状态有哪些。生命周期的各个阶段可以做什么。在`applicationContext.xml`配置`bean`的作用域有哪些。其中各个作用域代表的是什么。适用于什么情况。这篇文章做一个记录。<!--more-->

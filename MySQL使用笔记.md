@@ -2,7 +2,7 @@
 title: MySQL使用笔记
 date: 2017-01-17 22:56:00
 tags: mysql
-categories: Java EE
+categories: 后端
 ---
 
 平时使用的数据就是MySQL,当然，是自己MySQL还没有学好，所以才没有用别的。毕竟各种资料，博客记录的都是MySQL的资料。所以作为一个年轻的司机，还是老老实实的学习比较好。这篇文章记录在学习或者项目中，MySQL的使用笔记，没有什么特别针对性。不懂什么就记什么。<!--more-->

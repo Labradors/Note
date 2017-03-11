@@ -2,7 +2,7 @@ title: 利用SMS实现短信验证码验证-Android
 date: 2016-01-23 16:14:09
 updated: 2016-01-23 16:14:09
 tags: [第三方服务商]
-categories: Android
+categories: 移动端
 
 ---
 ![](http://7xk0q3.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81SDK.png)

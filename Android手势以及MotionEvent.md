@@ -2,7 +2,7 @@
 title: Android手势以及MotionEvent
 date: 2016-10-03 04:32:45
 tags: Android
-categories: Android
+categories: 移动端
 ---
 &nbsp;&nbsp;&nbsp;&nbsp;放国庆，本来一直说在家好好学点新东西。然而，这并没有什么卵用。还不是葛优躺了三天。最近写东西有些着急。要慢慢调整回来。好了，说正事。每个项目或多或少需要一些自定义`View`,有些自定义View需要进行手势判断。对不同的手势进行不同的操作。看了本篇博客，你会学会`View`事件的产生，消费操作。自己翻译了一下Android中对触摸事件的教程，链接在文章最末，有不对的地方请留言。来，开始骚操作。<!--more-->
 
@@ -19,16 +19,16 @@ categories: Android
 #### 事件类型
 在这里，我们使用`View`或者`Activity`的`onTouchEvent`来分析Android有哪些具体的事件类型。事件列表如下,Note:*Origin*表示你第一根按下的手指，非*Origin*表示其余手指。
 
-事件  |  作用
---|--
-`MotionEvent.ACTION_DOWN`  |  手指按下时开始,在这里不能返回fasle。具体后面讲解。
-`MotionEvent.ACTION_MOVE`  |  手指移动
-`MotionEvent.ACTION_POINTER_DOWN` |  多点触控时，非origin按下
-`MotionEvent.ACTION_POINTER_UP` |  非origin抬起
-`MotionEvent.ACTION_SCROLL` |  滑动事件
-`MotionEvent.ACTION_UP`  | origin抬起
-`MotionEvent.ACTION_CANCEL` |  有关事件分发机制，后面详细讲解
-`MotionEvent.ACTION_OUTSIDE ` |  手势发生在UI组建外
+| 事件                                | 作用                           |
+| --------------------------------- | ---------------------------- |
+| `MotionEvent.ACTION_DOWN`         | 手指按下时开始,在这里不能返回fasle。具体后面讲解。 |
+| `MotionEvent.ACTION_MOVE`         | 手指移动                         |
+| `MotionEvent.ACTION_POINTER_DOWN` | 多点触控时，非origin按下              |
+| `MotionEvent.ACTION_POINTER_UP`   | 非origin抬起                    |
+| `MotionEvent.ACTION_SCROLL`       | 滑动事件                         |
+| `MotionEvent.ACTION_UP`           | origin抬起                     |
+| `MotionEvent.ACTION_CANCEL`       | 有关事件分发机制，后面详细讲解              |
+| `MotionEvent.ACTION_OUTSIDE `     | 手势发生在UI组建外                   |
 
 
 
@@ -274,7 +274,7 @@ public class MainActivity extends Activity {
 代码仍然是最上面的代码，我们使用`VelocityTracker`收集滑动的速度，使用`ViewConfiguration`获取当前设置最佳判断移动的大小，因为检测的误差，我们实际使用中，不能将两个点之差为0计算为移动。当手指往右移动，我们将step移动到下一步，当手指往左移动，我们将step移动到前一步。
 
 - 获取最小差值<br>
-我的手机计算值为21.
+  我的手机计算值为21.
 ```Java
 ViewConfiguration vc = ViewConfiguration.get(getContext());
 mTouchSlop = vc.getScaledTouchSlop();

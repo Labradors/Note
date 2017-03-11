@@ -2,7 +2,7 @@
 title: 我所理解的Android MVP
 date: 2016-08-30 19:51:11
 tags: Android架构
-categories: Android
+categories: 移动端
 ---
 
 &nbsp;&nbsp;&nbsp;&nbsp; 刚写完一个有关一个Android MVP模式的Demo，Demo地址在[AndroidDesignPattern](https://github.com/BosCattle/AndroidDesignPattern),记录一下MVP的使用方式，个人觉得MVC还是很好理解的。这篇文章主要记录了MVP是什么？作用是什么？MVP相对MVC的差别。最重要的是讲MVP的使用方式。<!--more-->

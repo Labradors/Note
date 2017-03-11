@@ -2,7 +2,7 @@
 title: Android启动模式
 date: 2016-08-29 22:56:00
 tags: Android启动模式
-categories: Android
+categories: 移动端
 ---
 
 &nbsp;&nbsp;&nbsp;&nbsp; 前几天每天都在面试，有自己一个人，有跟同事一起，问了android启动模式方面的问题，好像每一个人回答的都不是很好，有些地方，让我自己说也说不清楚，根据自己的理解，然后看了一些博文，做下笔记，免得以后又记不住。毕竟我这么帅，我说什么都是对的。
@@ -48,12 +48,12 @@ protected void onNewIntent(Intent intent) {
 适用于不用应用之间的页面共用,共享。
 
 - `adb shell dumpsys activity activities`</br>
-查看当前栈分布
+  查看当前栈分布
 - `Intent.FLAG_ACTIVITY_SINGLE_TOP`</br>
-使用singleTop模式来启动一个Activity。
+  使用singleTop模式来启动一个Activity。
 - `Intent.FLAG_ACTIVITY_CLEAR_TOP`</br>
-使用singleTask模式来启动一个Activity
+  使用singleTask模式来启动一个Activity
 - `Intent.FLAG_ACTIVITY_NO_HISTORY`</br>
-使用该模式来启动Activity，当该Activity启动其他Activity后，该Activity就被销毁了，不会保留在任务栈中。如A-B,B中以这种模式启动C，C再启动D，则任务栈只有ABD。
+  使用该模式来启动Activity，当该Activity启动其他Activity后，该Activity就被销毁了，不会保留在任务栈中。如A-B,B中以这种模式启动C，C再启动D，则任务栈只有ABD。
 - `Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS`</br>
-使用该标识位启动的Activity不添加到最近应用列表，也即我们从最近应用里面查看不到我们启动的这个activity。与属性`android:excludeFromRecents="true"`效果相同。
+  使用该标识位启动的Activity不添加到最近应用列表，也即我们从最近应用里面查看不到我们启动的这个activity。与属性`android:excludeFromRecents="true"`效果相同。

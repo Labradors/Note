@@ -2,7 +2,7 @@
 title: Android事件分发机制
 date: 2016-10-15 10:32:45
 tags: Android
-categories: Android
+categories: 移动端
 ---
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;近半个月，不知道是什么原因，每天啥都不想做，只想睡觉。搞的上一篇博客自己都不知道自己写的啥。好了，不扯淡了。如果你想在项目中自定义ViewGroup，这玩样就不得不学了。不然最后写出来的东西，也许就真的是只能看，摸不得。这篇博文就告诉你关于Android事件分发机制的原理以及过程，最后以一个解决滑动冲突的问题来实践一下。过几天要去北京了，有Android方面的工作。求介绍。<!--more-->
@@ -46,9 +46,9 @@ public class TestButton extends Button implements View.OnTouchListener,View.OnCl
 }
 ```
 - 首先我们将`onTouch`方法屏蔽，当我们点击按钮，日志显示如下.
-![](http://7xk0q3.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%E4%B8%80.png)
-其中`0`和`1`代表`MotionEvent.ACTION_DOWN`和`MotionEvent.ACTION_UP`.每个数代表的含义可以在`MotionEvent `源码中查看.
-从图中我们可以看出，当你点击这个`Button`的时候，在View中，首先会进入`dispatchTouchEvent `，然后进入点击事件.在这里，`dispatchTouchEvent `返回为`true`。
+  ![](http://7xk0q3.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%E4%B8%80.png)
+  其中`0`和`1`代表`MotionEvent.ACTION_DOWN`和`MotionEvent.ACTION_UP`.每个数代表的含义可以在`MotionEvent `源码中查看.
+  从图中我们可以看出，当你点击这个`Button`的时候，在View中，首先会进入`dispatchTouchEvent `，然后进入点击事件.在这里，`dispatchTouchEvent `返回为`true`。
 
 - 当我们将`dispatchTouchEvent`返回false
 
@@ -386,7 +386,7 @@ public class TestButton extends Button implements View.OnTouchListener,View.OnCl
 
 ### ViewGroup事件拦截
  不管你上面做了啥，在`ViewGroup`中，无论什么情况都不拦截。
- 
+
 ```Java
    public boolean onInterceptTouchEvent(MotionEvent ev) {
         return false;

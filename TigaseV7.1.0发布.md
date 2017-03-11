@@ -2,7 +2,7 @@
 title: TigaseV7.1.0发布
 date: 2016-11-20 10:32:45
 tags: 翻译
-categories: 翻译
+categories: 后端
 
 ---
 

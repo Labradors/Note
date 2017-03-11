@@ -2,7 +2,7 @@
 title: Objective-C中的类别与协议
 date: 2016-10-12 9:32:45
 tags: IOS
-categories: IOS
+categories: 移动端
 ---
 
 最近在学习*objective-c*,主要是想学习ios开发。这篇文章的主要目的是记录，记录关于类别，类拓展，协议的使用，博文中有小部分内容摘自*《Objective-C基础教程》*。<!--more-->

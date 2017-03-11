@@ -2,7 +2,7 @@
 title: Spring MVC初探
 date: 2017-01-16 22:56:00
 tags: Spring
-categories: Java EE
+categories: 后端
 ---
 
 `Spring MVC`是基于Model2架构的。关于Model1和Model2架构，可以查看[资料](http://www.javatpoint.com/model-1-and-model-2-mvc-architecture)。在`Spring MVC`中，`Action`叫做`Controller`。`Controller`接受参数`request`和`response`。经过处理后返回`ModelAndView`。`Spring MVC`是围绕`DispatcherServlet`设计的。`DispatcherServlet`负责将不同的分发到不同的处理器上。`Spring MVC`还包括处理器映射，视图解析，本地化，主题解析，文件上传等功能。<!--more-->

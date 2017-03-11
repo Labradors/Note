@@ -2,7 +2,7 @@ title: 利用ShareSDK实现QQ与微博第三方登录-Android
 date: 2016-01-23 15:06:52
 updated: 2016-01-23 15:06:52
 tags: [第三方服务商]
-categories: Android
+categories: 移动端
 
 ---
 ![](http://7xk0q3.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BEsharesdk%E7%99%BB%E5%BD%95.png)
@@ -22,7 +22,7 @@ categories: Android
 ## 修改配置
 &nbsp;&nbsp;&nbsp;&nbsp;导入模块成功后,分为三个步骤，如下:
 1. 我们在项目中新建一个assets第三方资产目录。将下载下来的SDK中Res目录下ShareSDK.xml复制到assets目录下，然后填写以后信息，将各大平台的APP ID和APP KEY修改到配置文件中。如下:
-![](http://7xk0q3.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BEshareSDK.png)
+   ![](http://7xk0q3.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BEshareSDK.png)
 2. 在app module下AndroidManifest.xml文件中添加权限
 
 ```Java
@@ -127,7 +127,7 @@ private PlatformActionListener actionListener;
 [app_signatures.apk](https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/app_signatures.apk),签名之后就可以成功获取用户数据。
 ## 引用和推荐
 > 1. [在Android Studio中使用shareSDK进行社会化分享（图文教程）
-](http://www.cnblogs.com/smyhvae/p/4585340.html)
+>    ](http://www.cnblogs.com/smyhvae/p/4585340.html)
 > 2. [weibo_android_sdk](https://github.com/mobileresearch/weibo_android_sdk)
 > 3. [Weibo FAQ 授权出错](https://github.com/sinaweibosdk/weibo_ios_sdk/blob/master/FAQ.md)
 > 4. [ShareSDK for Android](http://wiki.mob.com/android_%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/)

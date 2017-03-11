@@ -2,7 +2,7 @@ title: 新年第一发-Idea和MyEclipse添加Hibernate支持
 date: 2016-01-10 17:42:45
 updated: 2016-01-13 10:50:45
 tags: [Hibernate]
-categories: Java EE
+categories: 后端
 
 ---
 ![](http://7xk0q3.com1.z0.glb.clouddn.com/idea-test.png)

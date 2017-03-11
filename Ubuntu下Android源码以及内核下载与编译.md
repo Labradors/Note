@@ -2,15 +2,15 @@
 title: Ubuntu下Android源码以及内核下载与编译
 date: 2016-07-24 01:21:04
 tags: Android源码
-categories: Android
+categories: 移动端
 ---
 &nbsp;&nbsp;&nbsp;&nbsp;本教程是基于Ubuntu下Android6.0.1源码以及内核的下载和编译，记录一下，以后也就不用自己去找资料，一遍一遍的尝试了。可以翻墙的,英语好的,直接去[AndroidSource](https://source.android.com/source/initializing.html).
 - 系统环境:Ubuntu14.04LTS
 - Android版本:6.0.1
 - 重要网址
- [清华大学镜像](https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/)
-[AndroidSource](https://source.android.com/source/initializing.html)
-<!--more-->
+   [清华大学镜像](https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/)
+   [AndroidSource](https://source.android.com/source/initializing.html)
+   <!--more-->
 
 ## 下载前的准备
 -  安装OpenJdk
@@ -34,28 +34,28 @@ sudo apt-get install gnupg flex bison gperf build-essential \
   libgl1-mesa-dev libxml2-utils xsltproc unzip
 ```
 
-组建  | 功能  |  介绍网址
---|---|--
-gnupg  | 加密工具  |  [GPG入门教程](http://www.ruanyifeng.com/blog/2013/07/gpg.html)
-flex  |  The Fast Lexical Analyzer | [快速的语法分析工具]( http://flex.sourceforge.net/)
-bison  |  用于自动生成语法分析器程序 |  [自动生成语法分析器程序](https://zh.wikipedia.org/wiki/GNU_bison)
-gperf  |  完美的散列函数生成器 |  [使用 gperf 实现高效的 C/C++ 命令行处理](http://www.ibm.com/developerworks/cn/linux/l-gperf.html)
-build-essential  |  编译内核中make menuconfig进图形编译 |  [build-essential](https://github.com/chef-cookbooks/build-essential)
-zip  | Linux 下zip包的压缩与解压  |  [Linux 下zip包的压缩与解压](http://www.cnblogs.com/chinareny2k/archive/2010/01/05/1639468.html)
-curl  |  网络请求和提取工具 |   [curl网站开发指南](http://www.ruanyifeng.com/blog/2011/09/curl.html)
-zlib1g-dev  |  用于发现gzip和PKZIP的工具 |  [Binary package “zlib1g-dev” in ubuntu trusty](https://launchpad.net/ubuntu/trusty/+package/zlib1g-dev)
-gcc-multilib  | 允许在64位机器中运行32位应用  |  [multilib](https://wiki.archlinux.org/index.php/multilib)
-g++-multilib  |  同上(g++编译工具) |  [多平台支持](https://packages.debian.org/wheezy/g++-multilib)
-libc6-dev-i386  |  Embedded GNU C Library: 32-bit development libraries for AMD64 |  [libc6-dev-i386](http://packages.ubuntu.com/precise/libc6-dev-i386)
-lib32ncurses5-dev  |  待完善  |  [待完善]()
-x11proto-core-dev  |  待完善 |  [待完善]()
-libx11-dev  |  待完善 |  [待完善]()
-lib32z-dev  |  待完善 |  [待完善]()
-ccache  |  待完善 |  [待完善]()
-libgl1-mesa-dev  | 待完善  |  [待完善]()
-libxml2-utils  |  待完善 |  [待完善]()
-xsltproc  | 待完善  |  [待完善]()
-unzip  |  待完善 |  [待完善]()
+| 组建                | 功能                                       | 介绍网址                                     |
+| ----------------- | ---------------------------------------- | ---------------------------------------- |
+| gnupg             | 加密工具                                     | [GPG入门教程](http://www.ruanyifeng.com/blog/2013/07/gpg.html) |
+| flex              | The Fast Lexical Analyzer                | [快速的语法分析工具]( http://flex.sourceforge.net/) |
+| bison             | 用于自动生成语法分析器程序                            | [自动生成语法分析器程序](https://zh.wikipedia.org/wiki/GNU_bison) |
+| gperf             | 完美的散列函数生成器                               | [使用 gperf 实现高效的 C/C++ 命令行处理](http://www.ibm.com/developerworks/cn/linux/l-gperf.html) |
+| build-essential   | 编译内核中make menuconfig进图形编译                | [build-essential](https://github.com/chef-cookbooks/build-essential) |
+| zip               | Linux 下zip包的压缩与解压                        | [Linux 下zip包的压缩与解压](http://www.cnblogs.com/chinareny2k/archive/2010/01/05/1639468.html) |
+| curl              | 网络请求和提取工具                                | [curl网站开发指南](http://www.ruanyifeng.com/blog/2011/09/curl.html) |
+| zlib1g-dev        | 用于发现gzip和PKZIP的工具                        | [Binary package “zlib1g-dev” in ubuntu trusty](https://launchpad.net/ubuntu/trusty/+package/zlib1g-dev) |
+| gcc-multilib      | 允许在64位机器中运行32位应用                         | [multilib](https://wiki.archlinux.org/index.php/multilib) |
+| g++-multilib      | 同上(g++编译工具)                              | [多平台支持](https://packages.debian.org/wheezy/g++-multilib) |
+| libc6-dev-i386    | Embedded GNU C Library: 32-bit development libraries for AMD64 | [libc6-dev-i386](http://packages.ubuntu.com/precise/libc6-dev-i386) |
+| lib32ncurses5-dev | 待完善                                      | [待完善]()                                  |
+| x11proto-core-dev | 待完善                                      | [待完善]()                                  |
+| libx11-dev        | 待完善                                      | [待完善]()                                  |
+| lib32z-dev        | 待完善                                      | [待完善]()                                  |
+| ccache            | 待完善                                      | [待完善]()                                  |
+| libgl1-mesa-dev   | 待完善                                      | [待完善]()                                  |
+| libxml2-utils     | 待完善                                      | [待完善]()                                  |
+| xsltproc          | 待完善                                      | [待完善]()                                  |
+| unzip             | 待完善                                      | [待完善]()                                  |
 
 
 ## 下载

@@ -2,7 +2,7 @@
 title: Android杂记
 date: 2016-12-17 10:32:45
 tags: 移动端
-categories: Android
+categories: 移动端
 ---
 转眼今年就要过完了，今年所记录的Android笔记就只有这些，没有层次关系，心情好记一记，心情不好，就不管了。Android停留在初中级一直走不上去。明年研究NDK。多记录一些东西。可不能再像今年这么随心所欲了。<!--more-->
 

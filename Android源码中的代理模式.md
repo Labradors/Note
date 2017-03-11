@@ -2,7 +2,7 @@
 title: Android源码中的代理模式
 date: 2016-10-20 10:32:45
 tags: Android
-categories: Android
+categories: 移动端
 ---
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇博文主要讲总结一下自己学习设计模式中的代理模式。有些书上也称为间接，比如我们科学上网，就是代理模式的一种。我们使用Java的方式来理解代理，最后，重点用Android进程间通信（IPC）机制Binder中的代理模式来体现代理模式在Android中的使用。<!--more-->
 ## 定义与使用场景

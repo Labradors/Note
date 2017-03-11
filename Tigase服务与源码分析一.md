@@ -2,7 +2,7 @@
 title: Tigase服务与源码分析一
 date: 2016-12-23 22:56:00
 tags: Java EE
-categories: Tigase
+categories: 后端
 ---
 > 版权声明：本文为博主原创文章，未经博主允许不得转载。
 

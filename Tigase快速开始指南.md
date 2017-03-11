@@ -2,7 +2,7 @@
 title: Tigase快速开始指南
 date: 2016-11-21 10:32:45
 tags: 翻译
-categories: 翻译
+categories: 后端
 
 ---
 
