@@ -42,7 +42,7 @@ categories: 前端
   </script>
 ```
 
-## 版本二
+### 版本二
 
 以上封装只适合一个元素对应一个类名，但是一个元素经常有多个类名，如何解决这个一个元素，多个类名呢。
 
@@ -138,4 +138,30 @@ categories: 前端
 ```
 
 ## DOM访问关系
+
+### DOM节点的访问
+
+dom节点包括以下几个:
+
+| 父节点        | 兄弟节点                                     | 子节点                        | 所有子节点                                    |
+| ---------- | ---------------------------------------- | -------------------------- | ---------------------------------------- |
+| parentNode | nextSibling(IE认识)                        | firstChild(IE认识)           | childNodes(不要怀疑，这个就是扯淡，需要结合nodeType一起使用) |
+| 都认识        | nextElementSibling(别的浏览器认识)              | firstElementChild(别的浏览器认识) | children(一般都用这个，IE6,7,8中注释也算是节点。取消注释)    |
+|            | previousSibling(IE认识)                    | lastChild(IE认识)            |                                          |
+|            | previousElementSibling(别的浏览器认识)          | lastElementChild(别的浏览器认识)  |                                          |
+|            | `var lv = $id("demo").nextElementSibling || $id("demo").nextSibling;` |                            |                                          |
+
+### DOM节点的新建
+
+
+
+### DOM节点的插入
+
+
+
+### DOM节点的删除
+
+
+
+### DOM节点的克隆
 
