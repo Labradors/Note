@@ -153,15 +153,38 @@ dom节点包括以下几个:
 
 ### DOM节点的新建
 
+添加在子元素的最后位置
+
+```javascript
+function $id(id) {
+                return document.getElementById(id);
+            }
+var newDiv = document.createElement("div");
+$id("container").appendChild(newDiv);
+```
+
 
 
 ### DOM节点的插入
 
+```javascript
+$id("list").insertBefore(newDiv,ulParent[1]);
+```
 
+`ulParent[1]`表示相对哪个节点。如果为`null`，则插入子节点的最后位置，如上面的一样
 
 ### DOM节点的删除
+
+```javascript
+$id("list").removeChild(newDiv);
+```
 
 
 
 ### DOM节点的克隆
+
+```javascript
+ var ulClone = $id("list").clone(true);
+ $id("container").appendChild(ulClone);
+```
 
