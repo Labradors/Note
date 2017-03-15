@@ -1,7 +1,7 @@
 ---
 title: 从Seafile到Jenkins
 date: 2017-03-16 10:32:45
-tags: Seafile Jenkins
+tags: [Seafile] [Jenkins]
 categories: 后端
 
 ---
