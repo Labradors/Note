@@ -171,6 +171,6 @@ categories: 前端
   </script>
 ```
 
-这种方式比较粗鲁，等满满完善吧。来看一波视频
+这种方式比较粗鲁，等慢慢完善吧。本想录制个gif，但没找到软件。智能看看静态图了。
 
-<embed src="http://7xk0q3.com1.z0.glb.clouddn.com/Mar%2016%202017%2010-29%20PM.webm" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+![2017031621261Screen Shot 2017-03-16 at 10.44.39 PM.png](http://7xk0q3.com1.z0.glb.clouddn.com/2017031621261Screen Shot 2017-03-16 at 10.44.39 PM.png)
