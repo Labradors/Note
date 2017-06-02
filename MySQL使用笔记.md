@@ -7,6 +7,78 @@ categories: 后端
 
 平时使用的数据就是MySQL,当然，是自己MySQL还没有学好，所以才没有用别的。毕竟各种资料，博客记录的都是MySQL的资料。所以作为一个年轻的司机，还是老老实实的学习比较好。这篇文章记录在学习或者项目中，MySQL的使用笔记，没有什么特别针对性。不懂什么就记什么。<!--more-->
 
+## Mysql源码安装
+
+* 安装libaio依赖
+
+```shell
+yum search libaio 
+yum install libaio 
+```
+
+* 下载压缩包
+
+```shell
+wget -c https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
+```
+
+* 解压并切换目录
+
+```shell
+tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz -C /usr/local
+cd /usr/local
+```
+
+* 创建软链接
+
+```shell
+ln -s mysql-5.7.18-linux-glibc2.5-x86_64 mysql
+```
+
+* 为mysql添加用户和组
+
+```shell
+groupadd mysql
+useradd -r -g mysql -s /bin/false mysql
+```
+
+* 切换目录并且分配权限
+
+```shell
+cd /usr/local/mysql
+chown -R mysql:mysql ./
+```
+
+* 安装mysql
+
+```shell
+./bin/mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --initialize
+```
+
+* 开启服务
+
+```shell
+./support-files/mysql.server start
+```
+
+* 添加到系统进程
+
+```shell
+cp support-files/mysql.server /etc/init.d/mysqld
+service mysqld restart
+```
+
+* 更改密码
+
+```shell
+mysql -u root -p
+alter user 'root'@'localhost' identified by 'rootroot';
+```
+
+
+
+
+
 ## 授权远程访问的方式
 
 现在正在做SSH的整合，因为公司有台电脑，家里一台，所以，如果要时常都可以完善代码。只能把数据库放在服务器。通过MySQL Workbench连接时提示没有授权访问。所以，来把权限加上。
