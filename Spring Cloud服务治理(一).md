@@ -9,7 +9,7 @@ categories: 后端
 
 ![20170627149857360736999.jpg](http://7xq3zt.com1.z0.glb.clouddn.com/20170627149857360736999.jpg)
 
-前面写了一篇[Spring boot使用案例](http://blog.jiangtao.tech/2017/06/25/Spring%20boot%E5%AD%A6%E4%B9%A0(%E4%B8%80)/)。这一节来入门Spring Cloud Eureka服务治理。Spring Cloud Eureka使用的是Netflix Eureka，然后在其基础之上，对Spring boot做了二次封装。Eureka由两个组件组成：**Eureka**服务器**和Eureka客户端**。Eureka服务器用作服务注册服务器。Eureka客户端是一个java客户端，用来简化与服务器的交互、作为轮询负载均衡器，并提供服务的故障切换支持。并且Eureka客户端注册到Eureka服务注册中心后，会每30s发送一次心跳，如果几分钟步伐送心跳。那就会被服务中心移除。这篇文章主要记录Spring Cloud Eureka的注册中心搭建，服务中心搭建，高可用的注册中心以及服务的发现和消费。
+前面写了一篇[Spring boot使用案例](http://blog.jiangtao.tech/2017/06/25/Spring%20boot%E5%AD%A6%E4%B9%A0(%E4%B8%80)/)。这一节来入门Spring Cloud Eureka服务治理。Spring Cloud Eureka使用的是Netflix Eureka，然后在其基础之上，对Spring boot做了二次封装。Eureka由两个组件组成：**Eureka**服务器**和Eureka客户端**。Eureka服务器用作服务注册服务器。Eureka客户端是一个java客户端，用来简化与服务器的交互、作为轮询负载均衡器，并提供服务的故障切换支持。并且Eureka客户端注册到Eureka服务注册中心后，会每30s发送一次心跳，如果几分钟步伐送心跳。那就会被服务中心移除。这篇文章主要记录Spring Cloud Eureka的注册中心搭建，服务中心搭建，高可用的注册中心以及服务的发现和消费。<!--more-->
 
 
 
