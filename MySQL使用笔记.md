@@ -121,7 +121,7 @@ alter user 'root'@'localhost' identified by 'rootroot';
 
 - between...and。这玩意也是不靠谱的。`SELECT * from Persons WHERE FirstName BETWEEN 'AosCattle' AND 'DosCattle';`
 
-- 别名。`SELECT LastName AS Family, FirstName AS NameFROM Persons`。
+- 别名。`SELECT LastName AS Family, FirstName AS Name FROM Persons`。
 
 - 多表查询，将一个表中的主键作为别的表中的列，这样进行多表查询，但是这种方式效率不高。`INSERT INTO Persons(LastName,FirstName,Address,City) VALUES('Kevin','DosCattle','四川省宜宾市高县沙河镇','宜宾市');`
 
@@ -142,4 +142,11 @@ alter user 'root'@'localhost' identified by 'rootroot';
   - `using btree`[介绍](http://imysql.com/2016/01/06/mysql-faq-different-between-btree-and-hash-index.shtml)。
   - `decimal(20,2)`表示精确度非常高的小数。包括18个整数位和2个小数位。
   - 单索引和组合索引。
+  - ​
+
+  ## 面试语句
+
+  - `SELECT * FROM mmall_product ORDER BY id DESC , category_id`id由高到低，category_id反序。
+  - `delete from mmall_product where id  = 1`
+  - `update mmall_product set name = 'dsds' where id = 1`
   - ​
