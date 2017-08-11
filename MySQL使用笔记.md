@@ -12,8 +12,8 @@ categories: 后端
 * 安装libaio依赖
 
 ```shell
-yum search libaio 
-yum install libaio 
+yum search libaio
+yum install libaio
 ```
 
 * 下载压缩包
@@ -142,11 +142,11 @@ alter user 'root'@'localhost' identified by 'rootroot';
   - `using btree`[介绍](http://imysql.com/2016/01/06/mysql-faq-different-between-btree-and-hash-index.shtml)。
   - `decimal(20,2)`表示精确度非常高的小数。包括18个整数位和2个小数位。
   - 单索引和组合索引。
-  - ​
+  - `mysql --histignore="*UPDATE*:*DELETE*"`指定更新和删除不写入日志文件。
+  - `mysqld --verbose --help`显示所有这些系统变量。
 
   ## 面试语句
 
   - `SELECT * FROM mmall_product ORDER BY id DESC , category_id`id由高到低，category_id反序。
   - `delete from mmall_product where id  = 1`
   - `update mmall_product set name = 'dsds' where id = 1`
-  - ​
