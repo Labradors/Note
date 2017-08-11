@@ -7,9 +7,11 @@ categories: 后端
 
 以前经常想一天一篇博客坚持下去，最后依然随了这点爱好，扯淡，😄😄。最近面试的问题最多的就是数据库了。最重要的就是数据库设计，数据库内部原理，比如索引算法，主键原理，具体为什么使用这些算法。然后就是做了哪些sql优化。说实话，是没做过啥特别的sql优化，然后今天专门花时间看了看文档，翻译，整理，记录一下。以方便以后查阅。后面想再看一看索引算法，Btree算法，各个索引为什么要使用这些算法。本篇文章还有一些杂乱的记录。扯淡，乃我此生之爱!
 
-数据库的性能主要包括两个方面，第一是硬件级别的，硬件主要包括CPU,IO以及网络方面，这方面不是文章的关键。第二是软件级别。包括数据库配置，数据库设计以及查询优化。具体看看官网[Optimization Overview](https://dev.mysql.com/doc/refman/5.7/en/optimize-overview.html),[优化SQL语句](https://dev.mysql.com/doc/refman/5.7/en/select-optimization.html)主要包括一下几个方面。where语句优化，Range优化，组合索引优化，引擎条件下推优化，主键条件下推优化，嵌套循环连接算法，嵌套连接优化，左连接和右连接优化，外连接优化，多范围读取优化，阻塞嵌套循环和批量密匙连接，`is null`优化，`order by`优化,`group by`优化,`distinct`优化，`limit`查询优化，函数调用优化，行构造函数表达式优化，避免全表扫描。有点多啊，头痛的很。<!--more-->
+数据库的性能主要包括两个方面，第一是硬件级别的，硬件主要包括CPU,IO以及网络方面，这方面不是文章的关键。第二是软件级别。包括数据库配置，数据库设计以及查询优化。具体看看官网[Optimization Overview](https://dev.mysql.com/doc/refman/5.7/en/optimize-overview.html)。头痛的很。<!--more-->
 
 ## Select语句优化
+
+[优化SQL语句](https://dev.mysql.com/doc/refman/5.7/en/select-optimization.html)主要包括一下几个方面。where语句优化，Range优化，组合索引优化，引擎条件下推优化，主键条件下推优化，嵌套循环连接算法，嵌套连接优化，左连接和右连接优化，外连接优化，多范围读取优化，阻塞嵌套循环和批量密匙连接，`is null`优化，`order by`优化,`group by`优化,`distinct`优化，`limit`查询优化，函数调用优化，行构造函数表达式优化，避免全表扫描等。
 
 ### Where语句优化
 
