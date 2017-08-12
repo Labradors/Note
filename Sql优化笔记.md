@@ -15,18 +15,98 @@ categories: 后端
 
 ### Where语句优化
 
-- where语句优化，同样适用于增，删，改。
-  - 去除不必要的括号
-  - 常量折叠
-  - 恒定条件去除。
-  - 索引使用的常量表达式之计算一次。
-  - 删除sql中无效的表达式
-  - 如果不使用Group by和聚合函数，having将与where合并。
-  - 主键索引和唯一索引尽量与常量表达式比较，并且限定为not null。
-  - 尽量使用临时表（因为放在内存中，读写速度天差地别）
-- 范围优化
-  - 对于单个索引的范围优化
-    - ​
+- 去除不必要的括号,如下:
+
+  ```sql
+   ((a AND b) AND c OR (((a AND b) AND (c AND d))))
+  -> (a AND b AND c) OR (a AND b AND c AND d)
+  ```
+
+- 常量折叠
+
+  ```sql
+     (a<b AND b=c) AND a=5
+  -> b>5 AND b=c AND a=5
+  ```
+
+- 恒定条件去除。
+
+  ```sql
+    (B>=5 AND B=5) OR (B=6 AND 5=5) OR (B=7 AND 5=6)
+  -> B=5 OR B=6
+  ```
+
+- 索引使用的常量表达式之计算一次。
+
+- `count(*)`如果不使用`where`语句，在**MyISAM**和**MEMORY**表中可以直接从表信息中拿到。同时也适用于**NOT NULL**表达式。
+
+- 尽早删除sql中无效的表达式
+
+- 如果不使用`Group by`和聚合函数，`having`将与`where`合并。([`COUNT()`](https://dev.mysql.com/doc/refman/5.7/en/group-by-functions.html#function_count), [`MIN()`](https://dev.mysql.com/doc/refman/5.7/en/group-by-functions.html#function_min)等一样)。
+
+- 主键索引和唯一索引尽量与常量表达式比较，并且限定为`not null`。
+
+- 对于连接中的各个表，尽量使用简单的`where`语句，以获得快的速度。
+
+- 在查询中，静态表尽量先读取。
+
+  ```sql
+  SELECT * FROM t WHERE primary_key=1;
+  SELECT * FROM t1,t2
+    WHERE t1.primary_key=1 AND t2.primary_key=t1.id;
+  ```
+
+- 对于要使用`JOIN`的情况，找出最好的方式。如果`ORDER BY`和`GROUP BY`子句中的所有列都来自同一个表，那么该表在加入时首选。
+
+- 如果使用SQL_SMALL_RESULT修饰符，MySQL使用内存中临时表。
+
+- 如果索引是数字，mysql将不会访问数据文件，而是直接从索引树中查找。
+
+- 尽量使用临时表（因为放在内存中，读写速度天差地别）
+
+- 下面是一些非常快的查询:
+
+  ```sql
+  SELECT COUNT(*) FROM tbl_name;
+
+  SELECT MIN(key_part1),MAX(key_part1) FROM tbl_name;
+
+  SELECT MAX(key_part2) FROM tbl_name
+    WHERE key_part1=constant;
+
+  SELECT ... FROM tbl_name
+    ORDER BY key_part1,key_part2,... LIMIT 10;
+
+  SELECT ... FROM tbl_name
+    ORDER BY key_part1 DESC, key_part2 DESC, ... LIMIT 10;
+   
+  ```
+
+
+- 下面的例子中，MYSQL查询使用的是索引树，假设主键为数字
+
+  ```sql
+  SELECT key_part1,key_part2 FROM tbl_name WHERE key_part1=val;
+
+  SELECT COUNT(*) FROM tbl_name
+    WHERE key_part1=val1 AND key_part2=val2;
+
+  SELECT key_part2 FROM tbl_name GROUP BY key_part1;
+  ```
+
+- 以下语句使用的是索引排序。
+
+  ```sql
+  SELECT ... FROM tbl_name
+    ORDER BY key_part1,key_part2,... ;
+
+  SELECT ... FROM tbl_name
+    ORDER BY key_part1 DESC, key_part2 DESC, ... ;
+  ```
+
+
+
+### Range优化
 
 
 
