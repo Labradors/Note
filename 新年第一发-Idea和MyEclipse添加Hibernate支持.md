@@ -6,7 +6,7 @@ categories: 后端
 
 ---
 ![](http://7xk0q3.com1.z0.glb.clouddn.com/idea-test.png)
-&nbsp;&nbsp;&nbsp;&nbsp;前言: 前面练习或者所做项目都是直接使用MVC模式下Dao层直接使用sql语句对数据库进行操作，这种方式简单但是效率低下并且更新和维护困难，空闲下学习使用[ORM](https://zh.wikipedia.org/zh-cn/%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84)的方式来操作数据库。Hibernate就是一种Java EE中比较完善的框架，  利用xml或者注释的方式作为数据库层与上层之间的桥梁。
+&nbsp;&nbsp;&nbsp;&nbsp;前言: 前面练习或者所做项目都是直接使用MVC模式下Dao层直接使用sql语句对数据库进行操作，这种方式简单但是效率低下并且更新和维护困难，空闲下学习使用[ORM](https://zh.wikipedia.org/zh-cn/%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84)的方式来操作数据库。Hibernate就是一种Java EE中比较完善的框架，利用xml或者注释的方式作为数据库层与上层之间的桥梁。
 <!--more-->
 ## Hibernate原理
 &nbsp;&nbsp;&nbsp;&nbsp;在JDBC编程中,我们是使用sql语句直接对数据库进行增删查该的操作，如果实体类改变，我们就需要改与之相关的所有sql语句，[ORM](https://zh.wikipedia.org/zh-cn/%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84)的出现解决了这种难题，Hibernate的作用就是替换MVC模式下的Dao层，利用POJO与实体类的映射自动生成相应的SQL语句。当实体类发生改变时，我们只需要更改实体类的配置即可。简单，方便，易维护。
