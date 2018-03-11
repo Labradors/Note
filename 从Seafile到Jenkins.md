@@ -16,7 +16,7 @@ categories: 后端
 
 [Jenkins](https://jenkins.io/)是开源软件，并且更新很快。对比较流行的`git`仓库,如果**Github,Gitlab,Bitbuck**等等都有良好的支持，对项目构建工具**Maven,Gradle,ant**等等也支持的很好。包括邮件提醒，XMPP机器人集成，现在还包含丁丁集成。算是比较完善了。而且Jenkins的主题图标也是我喜欢的风格。来欣赏一波。
 
-![2017031590034Screen Shot 2017-03-15 at 11.01.31 PM.png](http://7xk0q3.com1.z0.glb.clouddn.com/2017031590034Screen Shot 2017-03-15 at 11.01.31 PM.png)
+![2017031590034Screen Shot 2017-03-15 at 11.01.31 PM.png]( )
 
 好了，不扯犊子了。首先我们检查，更新一下源。
 
