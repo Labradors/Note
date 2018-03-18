@@ -130,6 +130,4 @@ public class HelloController {
 
 ### 运行结果
 
-![2017011611134Screen Shot 2017-01-16 at 2.10.21 PM.png](http://7xk0q3.com1.z0.glb.clouddn.com/2017011611134Screen Shot 2017-01-16 at 2.10.21 PM.png)
-
 先写到这儿，后面再写一个比较完善的例子。再写一下注解和`Spring MVC`b标签。
