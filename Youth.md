@@ -1,3 +1,5 @@
+![](https://ws1.sinaimg.cn/large/c0bee4a0gy1fpjnf92389j20zm0m2n15.jpg)
+
 在百词斩上看到的一篇文章以及翻译，文章和翻译都很好。
 
 > Youth is not a time of life; it is a state of mind;
