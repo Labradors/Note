@@ -3,7 +3,6 @@ title: About Tigase XMPP Server
 date: 2016-11-21 10:32:45
 tags: 翻译
 categories: 后端
-
 ---
 
 Note: 关于Tigase XMPP服务。原文链接：[About Tigase XMPP Server](http://docs.tigase.org/tigase-server/snapshot/Administration_Guide/html/#about)

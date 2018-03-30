@@ -5,7 +5,7 @@ tags: Script
 categories: 后端
 ---
 
-&nbsp;&nbsp;&nbsp;&nbsp;这篇博文可以让你明白，什么是[Webhook](https://developer.github.com/webhooks/),Webhook有哪些事件，设置Webhook的条件和流程。特别是自动部署线上服务器。和一些简单的linux操作。今年五月份的时候，因为毕业设计是做一个app，所以需要写后端，那个时候只懂用** Java EE ** 做后端。所以就用Java EE,因为Java是静态语言，你所有东西写完后，需要编译后才能生效。每次有更改后部署最烦人。特别花时间。那个时候就想，一定要学习Github Webhook。那时候就觉得这玩样好高端。近段时间在学习** Python ** ,然后通过** Python **  写一个Webhook,回过来看，其实就是通过在github有事件的时候发一个Post请求给你服务器。服务器接到发过来的信息后，进行一些操作就完了。Java也可以写，只是多一条编译命令就好了。
+这篇博文可以让你明白，什么是[Webhook](https://developer.github.com/webhooks/),Webhook有哪些事件，设置Webhook的条件和流程。特别是自动部署线上服务器。和一些简单的linux操作。今年五月份的时候，因为毕业设计是做一个app，所以需要写后端，那个时候只懂用**Java EE** 做后端。所以就用Java EE,因为Java是静态语言，你所有东西写完后，需要编译后才能生效。每次有更改后部署最烦人。特别花时间。那个时候就想，一定要学习Github Webhook。那时候就觉得这玩样好高端。近段时间在学习**Python** ,然后通过**Python**  写一个Webhook,回过来看，其实就是通过在github有事件的时候发一个Post请求给你服务器。服务器接到发过来的信息后，进行一些操作就完了。Java也可以写，只是多一条编译命令就好了。
 <!--more-->
 
 ## 设置Webhook的条件

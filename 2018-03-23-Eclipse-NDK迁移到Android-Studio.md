@@ -5,7 +5,9 @@ tags: NDK
 categories: 技术
 ---
 
+![](https://ws1.sinaimg.cn/large/c0bee4a0gy1fpn3rdc6tjj20ts0j87aa.jpg)
 最近看一个NDK项目，因为源码使用Eclipse IDE写的，想把代码导入Android Studio使用，毕竟好用很多，使用AS导入后，第一个问题就是编码问题，项目之前竟然使用的是GBK编码。首先就是改变编码问题。我先在设置中将项目编码改为UTF-8,build结果显示一堆错误的乱码，在网上逛了一圈，找到解决方案。
+<!--more-->
 
 ## 编码
 
