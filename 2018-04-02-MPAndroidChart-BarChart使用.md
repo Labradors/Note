@@ -5,72 +5,26 @@ tags: Android
 categories: 技术
 ---
 
-继上次的LineChart，本篇文章记录柱状图BarChart的使用，原理与LineChart没什么区别，都是定义左右YAxis和上下的XAxis，然后设置Labels，最后填充数据就ok。
-
-![](https://ws1.sinaimg.cn/large/c0bee4a0gy1fpyj16losyj209i05baac.jpg)
+![](https://ws1.sinaimg.cn/large/c0bee4a0gy1fpyqkyt4sgj20z40jgwq5.jpg)
+继上次的LineChart，本篇文章记录柱状图BarChart的使用，原理与LineChart没什么区别，都是定义左右YAxis和上下的XAxis，然后设置Labels，最后填充数据就ok。先看看效果图
 
 <!--more-->
 
+## 使用
 
+- XML布局
 
-```java
-public void init(BarChart chart) {
-    mManager = new BarChartManager(chart);
-    for (int i = 0; i < 7; i++) {
-      xValues.add((float) i);
-    }
-    //设置y轴的数据()
-    List<List<Float>> yValues = new ArrayList<>();
-    for (int i = 0; i < 4; i++) {
-      List<Float> yValue = new ArrayList<>();
-      for (int j = 0; j < 7; j++) {
-        yValue.add((float) (Math.random() * 8000));
-      }
-      yValues.add(yValue);
-    }
-    //颜色集合
-    colours.add(SupportApp.color(R.color.color_bar_one));
-    colours.add(SupportApp.color(R.color.color_bar_three));
-    colours.add(SupportApp.color(R.color.color_bar_four));
-    colours.add(SupportApp.color(R.color.color_bar_two));
-    //线的名字集合
-    List<String> names = new ArrayList<>();
-    names.add("米");
-    names.add("面");
-    names.add("粮");
-    names.add("油");
-
-    //创建多条折线的图表
-    mManager.showBarChart(xValues, yValues, names, colours);
-  }
+```xml
+<com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       />
 ```
 
-
-
-
+- 定义BarChart管理器
 
 ```java
-package cn.com.ssii.zhlk.ui.adapter;
-
-import android.graphics.Color;
-import android.view.View;
-import cn.com.ssii.zhlk.R;
-import cn.com.ssii.zhlk.utils.YAxisValueFormatter;
-import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.LimitLine;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.google.common.collect.Lists;
-import java.util.ArrayList;
-import java.util.List;
-import work.labradors.droid.support.SupportApp;
-
 /**
  * @author Administrator
  * @version 1.0
@@ -346,6 +300,42 @@ public class BarChartManager {
     mBarChart.setData(data);
   }
 }
-
 ```
 
+- 填充数据
+
+
+
+```java
+public void init(BarChart chart) {
+    mManager = new BarChartManager(chart);
+    for (int i = 0; i < 7; i++) {
+      xValues.add((float) i);
+    }
+    //设置y轴的数据()
+    List<List<Float>> yValues = new ArrayList<>();
+    for (int i = 0; i < 4; i++) {
+      List<Float> yValue = new ArrayList<>();
+      for (int j = 0; j < 7; j++) {
+        yValue.add((float) (Math.random() * 8000));
+      }
+      yValues.add(yValue);
+    }
+    //颜色集合
+    colours.add(SupportApp.color(R.color.color_bar_one));
+    colours.add(SupportApp.color(R.color.color_bar_three));
+    colours.add(SupportApp.color(R.color.color_bar_four));
+    colours.add(SupportApp.color(R.color.color_bar_two));
+    //线的名字集合
+    List<String> names = new ArrayList<>();
+    names.add("米");
+    names.add("面");
+    names.add("粮");
+    names.add("油");
+
+    //创建多条折线的图表
+    mManager.showBarChart(xValues, yValues, names, colours);
+  }
+```
+
+今天的文章基本都是源码，有使用的MPAndroidChart BarChart的可以参考。
