@@ -5,6 +5,8 @@ tags: Android
 categories: 技术
 ---
 
+![](https://ws1.sinaimg.cn/large/c0bee4a0gy1fq5j998px4j20gr0d5n1f.jpg)
+
 公司项目需要使用蓝牙打印，然而除了一个蓝牙打印机，啥都没有，在网上找了一堆文档，最后二维码打印还是折腾不好，最后在网上找到了个开源库，特别好用，在这里记录一下，也算是做一些推荐。[项目地址](https://github.com/AlexMofer/Printer),支持标准ESC-POS命令打印，固定IP或蓝牙打印，支持黑白图片打印。
 
 <!--more-->
