@@ -5,8 +5,6 @@ tags:  Android
 categories: Android
 ---
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/v67afFKwjvKcFRJuaYtJibZ6KAewovGdXMgQOz1eCttN2HbPc4xBWl9iavoyok3hxSh4PbWRMaWZIuJhbNlhibAlg/640?wx_fmt=gif)
-
  前几天每天都在面试，有自己一个人，有跟同事一起，问了android启动模式方面的问题，好像每一个人回答的都不是很好，有些地方，让我自己说也说不清楚，根据自己的理解，然后看了一些博文，做下笔记，免得以后又记不住。毕竟我这么帅，我说什么都是对的。
 
 &nbsp;&nbsp;&nbsp;&nbsp; Android任务栈，又称为task，具有先进后出的原则*（LIFO, Last In First Out）* 具体可以查看[维基百科](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%A0%88)。用于存放我们的activity组件。下来分别记录了Android的启动模式以及使用场景.
